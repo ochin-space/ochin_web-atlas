@@ -1,0 +1,42 @@
+This tool is intended to simplify the download process of the geographic maps.<br>
+The needs to have local maps arises from the possibility of using the device in offline mode, therefore without the possibility of downloading the tiles in runtime mode.<br>
+It is however important to know how the maps are structured to know what to download.<br>
+<h5> What are OSM maps</h5>
+This tool is based on the <a href="https://github.com/Leaflet/Leaflet"> Leaflet </a> libraries which in turn use the project maps <a href = "https: //wiki.openstreetmap .org / wiki / Main_Page "> OpenStreetMap </a>.<br>
+<i> from the OSM wiki: <br> OpenStreetMap is a free, editable map of the whole world that is being built by volunteers largely from scratch and released with an open-content license.</i><br>
+OSM maps represent the surface of the planet by means of square images of 256x256 pixels. Each zoom level contains a number of tiles equal to ntiles = 2 ^ zoomLevel * 2 ^ zoomLevel.<br>
+It goes from the zoomLevel=0 with just one tile, to zoomLevel=20 where 1.099.511.627.776 tiles are needed to cover the whole planet, 54TB are needed to store them all.<br>
+<br>From the OSM online servers it's possible to download different styles of maps, the important thing is that they comply with the OSM standard.<br>
+The URL of each tile must be the following:<br> http://servername/zoom/x/y.png<br>
+where zoom indicates the desired zoom level, X goes from 0 (left edge is 180° W) to 2 ^ zoom-1 ( right edge is 180° E) and Y goes from 0 (top edge is 85.0511° N) to 2^zoom-1 (bottom edge is 85.0511° S) in a Mercator projection.<br><br>
+<h5>How to use the addon</h5>
+In order to use this addon it's necessary to have the internet connection, it's possible to do so by connecting the wifi module to an online access point.<br>
+To download the maps locally, proceed as follows:<br>
+- select the map style from the servers list<br>
+- find the geographic area of interest on the map<br>
+- find the zoom level that contains the whole area in a single tile<br>
+- select the tile<br>
+- go to the next zoom level and select all the tiles above the area<br>
+- repeat the previous point up to the maximum zoom level desired<br>
+- start the download process<br><br>
+<h5>Getting around the map</h5>
+By means of the selection bar it is possible to select one of the map servers present in the list. Each sever provide a map based on a different style.<br>
+To add a server to the list it is necessary to modify the "helper/defaultMapServer.json" file present in the software folder.<br>
+To move the map, simply drag it while holding down the left mouse button.<br>
+To zoom on the map you can use the "+" and "-" buttons at the top left of the map. It is also possible to unlock the zoom function with the mouse wheel by making a single click with the left button. To lock the zoom function make a single click again.<br>
+From the search field it is possible to position the map on a specific area on the planet.<br><br>
+<h5>Select and download the tiles</h5>
+Once the map has been positioned on the area at the desired zoom level, it is possible to select the tiles to download by double clicking on them and they will turn yellow. This means that they will be downloaded at the next update of the local atlas.<br>
+When you select a tile at a zoom level greater than 9, the tiles above it at a lower zoom level, up to level 9, are automatically downloaded as well.<br>
+Tiles that are already present in the local atlas have a green color.
+<br>To delete one or more tiles (green) from the local atlas, simply double-click on them and they will turn red. This means that they will be deleted at the next update of the local atlas.<br>
+It is possible to download the same tiles from different servers, the selection of tiles to update (download or delete) refers only to the selected server.<br>
+To start the update process you need to press the "Update the Local Atlas" button and a modal window will open. From this modal window it is possible to select two additional features: <br>
+-Delete All <br>
+-Download All <br>
+If you choose to "Delete All", all the tiles under the red ones that you've selected will be also removed. <br>
+Since the number of subtiles could be huge, the "Delete All" will only remove area of ​​64x64 tiles on each sublayer. <br>
+If you choose to "Download All", you will also download an area of ​​4x4 tiles on every Zoomlayer up to 20. <br>
+The number of tiles to be downloaded automatically is limited to 4x4 at each zoom level, to avoid downloading a very large number of unnecessary tiles.<br>
+Since you're zooming deep in a small area, every zoomed area will be centered around the point you clicked (the coordinates and not just the tile). This means that, for example, if you have selected a tile at zoom level 10 by clicking near the top left corner of the same,
+the 4x4 areas at subsequent zoom levels will be centered around that point and not in the center of the tile at zoom level 10.

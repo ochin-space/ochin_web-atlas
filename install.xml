@@ -1,0 +1,8 @@
+<install>
+	<addon name='Local Atlas'>
+		<en>false</en>
+		<topbarpos>Configuration</topbarpos>
+		<foldername>ochin_web-atlas</foldername>
+		<description>Local Atlas manager</description>
+	</addon>
+</install>
