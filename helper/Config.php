@@ -6,7 +6,7 @@
 */ 
 class Config {
     const topbar_path = '../../navbar.php';
-    const atlas_tiles_path = '/var/www/html/ochin/atlas_tiles';
+    const atlas_tiles_path = '../../atlas_tiles';
     const defaultLatitude = "44.4639937";
     const defaultLongitude = "9.1019311";
     const jQueryPath = "../../lib/jquery-3.6.0.min.js";
