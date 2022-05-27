@@ -80,8 +80,9 @@ function updateLocalMap($path, $serverMapURL,  $newTiles, $tiles2remove, $delete
 	$nSubTiles2Dwn = 4;
 	$nSubTiles2Del = 64;
 	
+	if(!file_exists($path)) mkdir($path, 0755);	//check if map folder exists and eventually create it
+		
 	$diskFree = intval((disk_free_space($path)*100)/disk_total_space($path));
-	//$debug = fopen("/var/www/html/ochin/atlas_tiles/debug.txt", 'w');
 	//download the selected tiles and the ones over them with lower zoom factor
 	foreach($tiles as $tile)
 	{
