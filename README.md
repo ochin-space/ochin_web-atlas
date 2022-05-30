@@ -1,5 +1,5 @@
 ![Alt text](images/ochin_logo.png?raw=true&=200x "ochin_web")
-<h1>ochin_web</h1>
+<h1>Local Atlas</h1>
 <p>The "Local Atlas" software addon is designed to be a part of the <a href="https://github.com/ochin-space/ochin_web">ochin_web</a> project.
 <p>This tool is intended to simplify the download process of the geographic maps.</p>
 The needs to have local maps arises from the possibility of using the device in offline mode, therefore without the possibility of downloading the tiles in runtime mode.</p>
