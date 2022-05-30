@@ -12,12 +12,6 @@ if(isset($_SESSION["loggedin"]) && ($_SESSION["loggedin"]==true))
 {
 	if(!isset($_SESSION["mapServer"])) $_SESSION["mapServer"] = 0;
 	
-    if(isset($_POST['delete'])) {
-        $dbConstructor->deleteRow_template($_POST['id']);
-    }
-    if(isset($_POST['update'])) {
-        $dbConstructor->updateRow_template($_POST['id'], $_POST['en'], $_POST['name'], $_POST['cmd_line'], $_POST['description']);
-    }
     if(isset($_POST['tilesList'])) {
 		$_SESSION["mapServer"] = $_POST['mapIndex'];
         tilesList(Config::atlas_tiles_path."/".$_POST['mapName']);
